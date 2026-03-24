@@ -11,7 +11,7 @@
     </style>
   </head>
   <body>
-    <h1>YOUR USERNAME - Task 1</h1>
+    <h1>isioma20 - Task 1</h1>
     <h2>My code:</h2>
     <p id="code" class="block"></p>
     <h2>Results of my code:</h2>
@@ -82,6 +82,26 @@
       ];
 
       // {# YOUR CODE HERE #}
+      const results = document.getElementById("results");
+
+      // code to format the date to resemble the task brief
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        });
+      }
+
+      const html = data
+        .map(
+          (article) =>
+            `<p>Article "${article.title}" (Page ID ${article.page_id}) was created at ${formatDate(article.creation_date)}.</p>`,
+        )
+        .join("");
+
+      results.innerHTML = html;
     </script>
     <script>
       document.getElementById("code").innerText =
